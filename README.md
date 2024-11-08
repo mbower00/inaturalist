@@ -1,2 +1,31 @@
+###### this readme was automatically generated `vue create inaturalist`
+
 # inaturalist
-A vue project interfacing with the [inaturalist api](https://api.inaturalist.org/v1/docs/)
+
+## Project setup
+
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+
+```
+npm run build
+```
+
+### Lints and fixes files
+
+```
+npm run lint
+```
+
+### Customize configuration
+
+See [Configuration Reference](https://cli.vuejs.org/config/).
