@@ -31,6 +31,6 @@ ul {
   font-size: large;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 10px;
 }
 </style>

@@ -15,12 +15,13 @@
       </section>
 
       <section class="identifications-section">
+
+        <h2 class="identification-title">{{ identifiyingPlaceName }}</h2>
+
         <div class="loading-indicator-container" v-if="showLoadingIdentifications">
           <LoadingIndicator class="loading-indicator" />
           <div class="loading-indicator-text">{{ identifiyingPlaceName }} loading...</div>
         </div>
-
-        <h2 class="identification-title">{{ identifiyingPlaceName }}</h2>
 
         <IdentificationsList :results="identificationsResults?.results" />
       </section>
@@ -49,7 +50,7 @@ export default {
       showLoading: true,
       searchResults: null,
       identificationsResults: null,
-      identifiyingPlaceName: "",
+      identifiyingPlaceName: "Idaho",
       showLoadingIdentifications: false
     }
   },
@@ -63,13 +64,14 @@ export default {
     async submitIdentificationSearch(placeID, placeName) {
       this.identifiyingPlaceName = placeName
       this.showLoadingIdentifications = true
+      this.identificationsResults = null
       this.identificationsResults = await searchIdentifications(placeID)
-      console.log(this.identificationsResults)
       this.showLoadingIdentifications = false
     }
   },
   mounted() {
     this.submitSearch("Idaho")
+    this.submitIdentificationSearch(2, "Idaho")
   }
 }
 </script>
@@ -93,28 +95,29 @@ main {
   margin: 0;
   padding: 20px;
   color: white;
-  border-radius: 5px 5px 0 0;
 }
 
 .main-grid {
   display: grid;
-  grid-template-columns: 3fr 5fr;
+  grid-template-columns: 1fr;
 }
 
 .places-section {
   border-radius: 0 0 0 5px;
   background-color: var(--color-2);
-  border-right: var(--color-1) 4px solid;
+  border-bottom: var(--color-1) 4px solid;
+  border-radius: 0;
   padding: 10px;
 }
 
-identifications-section .loading-indicator {
+.loading-indicator {
   margin: 0 auto;
 }
 
 .loading-indicator-container {
   width: fit-content;
   margin: 7px auto;
+  padding: 10px;
 }
 
 .loading-indicator-text {
@@ -125,5 +128,22 @@ identifications-section .loading-indicator {
 .identification-title {
   padding: 0 10px;
   margin: 15px 0;
+}
+
+@media (min-width: 600px) {
+  .main-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .places-section {
+    border-right: var(--color-1) 4px solid;
+    border-bottom: none;
+  }
+}
+
+@media (min-width: 800px) {
+  .main-grid {
+    grid-template-columns: 3fr 5fr;
+  }
 }
 </style>

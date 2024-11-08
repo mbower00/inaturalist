@@ -16,8 +16,26 @@ export default {
 <style scoped>
 .identifications-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 10px;
   padding: 10px;
+}
+
+@media (min-width: 500px) {
+  .identifications-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 800px) {
+  .identifications-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 900px) {
+  .identifications-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 </style>

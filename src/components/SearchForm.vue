@@ -43,5 +43,6 @@ button {
   border: var(--color-1) 4px solid;
   background-color: var(--color-1);
   color: white;
+  border-radius: 5px;
 }
 </style>
